@@ -9,9 +9,14 @@ class Employer < ApplicationRecord
 			count += 1
 			sum += employee.rating
 		end
-		average = sum / count
+		if(count != 0)
+			average = sum / count
+			self.average_rating = average
+		else
+			self.average_rating = 0.0
+		end
 		self.number_of_employees_rated = count
-		self.average_rating = average
+		self.average_rating
 	end
 
 end
