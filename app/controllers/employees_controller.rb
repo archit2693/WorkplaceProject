@@ -6,17 +6,26 @@ class EmployeesController < ApplicationController
 		@employee = @employer.employees.new
 	end
 
+	def create 
+		@employee = @employer.employees.new(employee_params)
+		if @employee.save
+			redirect_to employer_path(@employer)
+		else
+			render :new, notice: "Failed to add employee."
+		end
+	end
+
 	private
     
-    # def set_employee
-    #   @employee = @employer.employees.find(params[:id])
-    # end
+    def set_employee
+      @employee = @employer.employees.find(params[:id])
+    end
 
     def set_employer
       @employer = Employer.find(params[:employer_id])
     end
     
-    # def employee_params
-    #   params.require(:employee).permit(:name, :position, :rating)
-    # end
+    def employee_params
+      params.require(:employee).permit(:name, :position, :rating)
+    end
 end

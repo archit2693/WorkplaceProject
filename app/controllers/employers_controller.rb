@@ -4,6 +4,10 @@ class EmployersController < ApplicationController
 		@employers = Employer.all
 	end
 
+	def show
+		@employer = Employer.find(params[:id])
+	end
+
 	def new
 	end
 
@@ -14,6 +18,12 @@ class EmployersController < ApplicationController
 		else
 			render :new, notice: "Failed to save the employer."
 		end
+	end
+
+	def destroy
+		@employer = Employer.find(params[:id])
+		@employer.destroy
+		redirect_to employers_url, notice: 'Employer was successfully destroyed.'
 	end
 
 	private

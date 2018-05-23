@@ -26,4 +26,19 @@ class EmployersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
   end
+
+  test "should show employees on show method" do
+  	get employer_path(employers(:one))
+  	assert_response :success
+  end
+
+  test "should delete employer on destroy" do
+  	employer = employers(:one)
+    assert_difference('Employer.count', -1) do
+      delete employer_path(employer)
+    end
+
+    assert_redirected_to employers_url
+  end
+
 end
