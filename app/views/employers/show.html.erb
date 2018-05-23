@@ -28,7 +28,7 @@
         <td><%= employee.name %></td>
         <td><%= employee.position %></td>
         <td><%= employee.rating %></td>
-        <td><%= link_to 'Edit', [@employer, employee] %></td>
+        <td><%= link_to 'Edit', edit_employer_employee_path(@employer, employee) %></td>
         <td><%= link_to 'Destroy', [@employer, employee], method: :delete %></td>
       </tr>
     <% end %>

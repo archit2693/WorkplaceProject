@@ -26,6 +26,8 @@ class EmployersController < ApplicationController
 		redirect_to employers_url, notice: 'Employer was successfully destroyed.'
 	end
 
+
+
 	private
 		def employer_params
 			params.fetch(:employer).permit(:company_name)

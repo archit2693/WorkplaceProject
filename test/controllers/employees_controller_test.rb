@@ -19,12 +19,25 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to employer_url(@employer)
   end
 
+	test "should not create invalid employee" do
+    assert_difference('@employer.employees.count', 0) do
+      post employer_employees_url(@employer), params: { employee: { name: nil , position: "Intern", rating: 3.0}, :employer_id => @employee.employer.id }
+    end
+
+    assert_response :success
+  end
+
   test "should delete employee on destroy" do
     assert_difference('@employer.employees.count', -1) do
       delete employer_employee_path(@employer, @employee)
     end
 
     assert_redirected_to employer_url(@employer)
+  end
+
+  test "should get edit" do
+    get edit_employer_employee_path(@employer, @employee)
+    assert_response :success
   end
 
 end
