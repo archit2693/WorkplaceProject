@@ -9,4 +9,8 @@ class EmployerTest < ActiveSupport::TestCase
  		employers(:one).company_name = nil
  		assert_equal false, employers(:one).valid?
  	end
+
+ 	test "company name should be a string" do
+		assert_equal true, employers(:one).company_name.is_a?(String)
+	end
 end

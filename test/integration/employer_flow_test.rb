@@ -18,4 +18,14 @@ class EmployerFlowTest < ActionDispatch::IntegrationTest
 		assert_select "td", "TestCompany"
 	end	
 
+	test "can see form on new_employer_path" do
+		get new_employer_path
+
+		assert_select "form" do |elements|
+			elements.each do |element|
+				assert_select element, "input", 3
+			end
+		end
+	end
+
 end

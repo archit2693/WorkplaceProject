@@ -12,7 +12,7 @@ class EmployersController < ApplicationController
 		if @employer.save
 			redirect_to employers_path
 		else
-			render_plain "Failed"
+			render :new, notice: "Failed to save the employer."
 		end
 	end
 
