@@ -24,8 +24,13 @@ class EmployeesController < ApplicationController
 	end
 
 	def update
+		if @employee.update(employee_params)
+			redirect_to employer_path(@employer)
+		else
+			render "edit", notice: "Could not edit the employee"
+		end
 	end
-	
+
 	private
     
     def set_employee

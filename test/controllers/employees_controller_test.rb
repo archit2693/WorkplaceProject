@@ -40,4 +40,19 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should update employee on update method" do
+		assert_difference('@employer.employees.count', 0) do
+      patch employer_employee_url(@employer, @employee), params: { employee: { name: "UpdatedName" , position: "Intern", rating: 5.0}, :employer_id => @employee.employer.id }
+    end
+
+    assert_redirected_to employer_url(@employer)
+	end
+
+	test "should not update employee with invalid parameters " do
+    assert_difference('@employer.employees.count', 0) do
+      patch employer_employee_url(@employer, @employee), params: { employee: { name: nil , position: "Intern", rating: 3.0}, :employer_id => @employee.employer.id }
+    end
+
+    assert_response :success
+  end
 end
