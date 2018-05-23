@@ -7,7 +7,6 @@ class EmployerTest < ActiveSupport::TestCase
 
   test "should be invalid without company name" do
  		employers(:one).company_name = nil
- 		assert_nil employers(:one).company_name
  		assert_equal false, employers(:one).valid?
  	end
 end
