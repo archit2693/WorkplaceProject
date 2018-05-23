@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_23_063802) do
+ActiveRecord::Schema.define(version: 2018_05_23_105101) do
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.string "position"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "employers", force: :cascade do |t|
     t.string "company_name"
-    t.float "average_rating"
-    t.integer "number_of_employees_rated"
+    t.float "average_rating", default: 0.0
+    t.integer "number_of_employees_rated", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
