@@ -24,7 +24,7 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
       delete employer_employee_path(@employer, @employee)
     end
 
-    assert_redirected_to employers_url
+    assert_redirected_to employer_url(@employer)
   end
 
 end

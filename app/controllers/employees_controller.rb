@@ -15,6 +15,11 @@ class EmployeesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@employee.destroy
+		redirect_to employer_path(@employer)
+	end
+
 	private
     
     def set_employee
