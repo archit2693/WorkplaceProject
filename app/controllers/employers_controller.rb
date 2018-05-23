@@ -6,6 +6,8 @@ class EmployersController < ApplicationController
 
 	def show
 		@employer = Employer.find(params[:id])
+		@employer.update_rating
+		@employer
 	end
 
 	def new
