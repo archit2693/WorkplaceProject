@@ -6,7 +6,7 @@
 
 <p>
 <strong>Average Rating</strong>
-  <%= @employer.average_rating %>
+  <%= number_with_precision(@employer.average_rating, precision: 2) %>
 </p>
 <br>
 

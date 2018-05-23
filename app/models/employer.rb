@@ -10,6 +10,7 @@ class Employer < ApplicationRecord
 			sum += employee.rating
 		end
 		average = sum / count
+		self.number_of_employees_rated = count
 		self.average_rating = average
 	end
 
