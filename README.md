@@ -1,4 +1,4 @@
-# WORKPLACE RATE
+# WORKPLACE RATE [![Build Status](https://travis-ci.org/archit2693/WorkplaceProject.svg?branch=master)](https://travis-ci.org/archit2693/WorkplaceProject)
 
 A Ruby on Rails web application where people can rate their workplace. The site will list the companies which one can rate along with their current average ratings.
 
