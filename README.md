@@ -15,9 +15,10 @@ The application works on a MVC pattern where 2 models are used namely :
 Employer
 Employee
 Along with their controllers and views.
+![alt text](model.png "Employer and Employee models")
 
 # Steps:
 1. Clone the repository.
-2. Open cmd and navigate to the cloned repository and run "bundle install" to install gems.
+2. Open cmd and navigate to the cloned repository and run "bundle install" to install gems along with "rake db:migrate" to establish the database.
 3. Run "rails serve" on cmd to run the server on "http://localhost:3000" which can be accessed thru browser.
 4. Perform "rails test" on cmd to run the tests.
